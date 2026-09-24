@@ -65,7 +65,6 @@ wp-config.php
 .DS_Store
 Thumbs.db
 node_modules/
-vendor/
 *.sql
 *.sql.gz
 *.zip
