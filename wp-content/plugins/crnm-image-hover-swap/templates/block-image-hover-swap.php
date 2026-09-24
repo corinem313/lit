@@ -14,6 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( ! function_exists( 'get_field' ) ) {
+	return;
+}
+
 $crnm_default_image = get_field( 'crnm_default_image' );
 $crnm_hover_image   = get_field( 'crnm_hover_image' );
 $crnm_width         = absint( get_field( 'crnm_container_width' ) ?: 400 );

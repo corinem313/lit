@@ -3,36 +3,51 @@
  * Plugin Name:  CRNM Image Hover Swap
  * Plugin URI:   https://corinem.com
  * Description:  A Gutenberg block that swaps between two images on hover with a smooth transition. Images always cover the container.
- * Version:      1.3.0
+ * Version:      1.3.1
  * Author:       Corinem LLC
  * Author URI:   https://corinem.com
  * License:      GPL-2.0-or-later
  * Text Domain:  crnm-image-hover-swap
  * Requires PHP: 7.4
  * Requires at least: 6.2
+ * Requires Plugins: advanced-custom-fields
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'CRNM_IHS_VERSION', '1.3.0' );
+define( 'CRNM_IHS_VERSION', '1.3.1' );
 define( 'CRNM_IHS_PATH', plugin_dir_path( __FILE__ ) );
 define( 'CRNM_IHS_URL', plugin_dir_url( __FILE__ ) );
 
 /**
- * Check that ACF Pro is active before bootstrapping.
+ * Load block registration only after ACF is available.
+ *
+ * The dependency slug is advanced-custom-fields. ACF PRO remaps that slug
+ * to itself, so Pro satisfies it without a missing-plugin error.
  */
-function crnm_ihs_check_acf_dependency() {
-	if ( ! class_exists( 'ACF' ) ) {
-		add_action( 'admin_notices', 'crnm_ihs_acf_missing_notice' );
+function crnm_ihs_load_acf_integration() {
+	if ( ! function_exists( 'acf_register_block_type' ) || ! function_exists( 'acf_add_local_field_group' ) ) {
 		return;
 	}
 
 	require_once CRNM_IHS_PATH . 'includes/register-fields.php';
 	require_once CRNM_IHS_PATH . 'includes/register-block.php';
 }
-add_action( 'plugins_loaded', 'crnm_ihs_check_acf_dependency' );
+add_action( 'acf/init', 'crnm_ihs_load_acf_integration', 5 );
+
+/**
+ * Notice when ACF never loaded. acf/init does not run in that case.
+ */
+function crnm_ihs_maybe_acf_missing_notice() {
+	if ( function_exists( 'acf_register_block_type' ) ) {
+		return;
+	}
+
+	crnm_ihs_acf_missing_notice();
+}
+add_action( 'admin_notices', 'crnm_ihs_maybe_acf_missing_notice' );
 
 /**
  * Admin notice when ACF Pro is not active.

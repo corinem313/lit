@@ -68,3 +68,13 @@ node_modules/
 vendor/
 *.sql
 *.sql.gz
+*.zip
+*.tar
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.lzma
+*.tar.lz
+*.tar.lzo
+*.tar.lz4
+*.tar.zstd
