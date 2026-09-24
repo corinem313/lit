@@ -1,0 +1,12 @@
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sng-menu-arrow" x1="9" y1="17" x2="15" y2="17" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7c9bff"/>
+      <stop offset="1" stop-color="#5eead4"/>
+    </linearGradient>
+  </defs>
+  <path d="M5 3h11l5 5v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="#ffffff" stroke-width="1.7" stroke-linejoin="round"/>
+  <path d="M8 3v5h7V3" stroke="#ffffff" stroke-width="1.7" stroke-linejoin="round"/>
+  <rect x="7" y="13" width="10" height="8" rx="1" stroke="#ffffff" stroke-width="1.7" stroke-linejoin="round"/>
+  <path d="M9.5 17h4.4m0 0-1.7-1.7m1.7 1.7-1.7 1.7" stroke="url(#sng-menu-arrow)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

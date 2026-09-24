@@ -1,0 +1,29 @@
+{
+    "name": "mickey-kay/better-font-awesome",
+    "description": "Better Font Awesome",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=7.4",
+        "mickey-kay/better-font-awesome-library": "3.1.0"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^9.6",
+        "squizlabs/php_codesniffer": "^3.13.5",
+        "szepeviktor/phpstan-wordpress": "^2.0.4",
+        "wp-coding-standards/wpcs": "^3.4.1",
+        "yoast/phpunit-polyfills": "^3.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
+        },
+        "platform": {
+            "php": "7.4.0"
+        },
+        "sort-packages": true
+    }
+}

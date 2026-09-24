@@ -1,0 +1,215 @@
+/**
+ * Save and Go — block editor (Gutenberg) styles.
+ *
+ * Copyright 2026 Alisha Thomas (https://eightysevenweb.com)
+ * Part of the "Save and Go" WordPress plugin (GPLv3).
+ */
+
+.sng-be-container {
+	position: relative;
+	display: inline-flex;
+	align-items: stretch;
+	margin-left: 6px;
+	border-radius: 6px;
+}
+
+/*
+ * Every button rule below carries the container class on purpose: it
+ * keeps the split button in one piece on sites whose theme or admin-UI
+ * plugin restyles all editor-header buttons (border-radius, margins…)
+ * with more specific selectors than a single class.
+ */
+.sng-be-container .sng-be-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 32px;
+	margin: 0;
+	padding: 0 12px;
+	border: 1px solid var(--wp-admin-theme-color, #3858e9);
+	border-radius: 0;
+	background: transparent;
+	color: var(--wp-admin-theme-color, #3858e9);
+	font-family: inherit;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* The icon some actions show inside the button label. */
+.sng-be-container .sng-be-button .dashicons {
+	font-size: 13px;
+	width: 13px;
+	height: 13px;
+	line-height: 1;
+}
+
+.sng-be-container > .sng-be-main {
+	border-radius: 6px 0 0 6px;
+	border-right: 0;
+}
+
+.sng-be-container:not(.sng-be-primary) .sng-be-main:hover:not(:disabled),
+.sng-be-container:not(.sng-be-primary) .sng-be-toggle:hover:not(:disabled) {
+	background: rgba(56, 88, 233, 0.06);
+}
+
+.sng-be-container > .sng-be-toggle {
+	padding: 0 5px;
+	border-radius: 0 6px 6px 0;
+}
+
+.sng-be-container:not(:has(.sng-be-toggle)) > .sng-be-main,
+.sng-be-container > .sng-be-main:only-child {
+	border-radius: 6px;
+	border-right: 1px solid var(--wp-admin-theme-color, #3858e9);
+}
+
+.sng-be-toggle svg {
+	display: block;
+	transition: transform 0.18s ease;
+}
+
+.sng-be-menu-open .sng-be-toggle svg {
+	transform: rotate(180deg);
+}
+
+/* Primary (display-as-default) variant. */
+.sng-be-primary .sng-be-button {
+	background: var(--wp-admin-theme-color, #3858e9);
+	border-color: var(--wp-admin-theme-color, #3858e9);
+	color: #ffffff;
+}
+
+.sng-be-primary .sng-be-button:hover:not(:disabled) {
+	background: var(--wp-admin-theme-color-darker-10, #2145e6);
+}
+
+.sng-be-primary > .sng-be-toggle {
+	box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.25);
+}
+
+.sng-be-container .sng-be-button:disabled {
+	opacity: 0.6;
+	cursor: default;
+}
+
+.sng-be-container .sng-be-button:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 1.5px #ffffff, 0 0 0 3px var(--wp-admin-theme-color, #3858e9);
+	z-index: 1;
+}
+
+/*
+ * Dropdown menu. It is appended to document.body and positioned with
+ * position:fixed by the script, so it always renders above the editor
+ * sidebar and any other panel (the header's own stacking context would
+ * otherwise trap and cover it).
+ */
+.sng-be-menu {
+	position: fixed;
+	z-index: 9999999;
+	min-width: 240px;
+	margin: 0;
+	padding: 6px;
+	list-style: none;
+	background: #ffffff;
+	border: 1px solid rgba(30, 30, 30, 0.1);
+	border-radius: 10px;
+	box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18), 0 2px 6px rgba(15, 23, 42, 0.08);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-4px);
+	transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s;
+	pointer-events: none;
+}
+
+.sng-be-menu.is-open {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+	pointer-events: auto;
+}
+
+/*
+ * Native top-layer mode (Popover API). The script anchors the menu with
+ * inline top/left/right values; these rules cancel the browser's default
+ * popover centering and keep our look intact in the top layer.
+ */
+.sng-be-menu[popover] {
+	inset: auto;
+	margin: 0;
+	overflow: visible;
+}
+
+.sng-be-menu li {
+	margin: 0;
+}
+
+.sng-be-menu-item {
+	display: block;
+	width: 100%;
+	padding: 8px 12px;
+	border: 0;
+	border-radius: 7px;
+	background: transparent;
+	color: #1e1e1e;
+	font-family: inherit;
+	font-size: 13px;
+	line-height: 1.4;
+	text-align: left;
+	cursor: pointer;
+	transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.sng-be-menu-item:hover:not(.is-disabled) {
+	background: rgba(56, 88, 233, 0.08);
+	color: var(--wp-admin-theme-color, #3858e9);
+}
+
+.sng-be-menu-item.is-disabled {
+	color: #9ca3af;
+	cursor: default;
+}
+
+.sng-be-menu-item .dashicons {
+	font-size: 14px;
+	width: 14px;
+	height: 14px;
+	line-height: 1.2;
+	vertical-align: text-top;
+}
+
+/*
+ * Replace mode: once the post is published/scheduled, the WordPress
+ * Publish/Update button is hidden and Save & Go is the only save
+ * button. (For unpublished posts the WordPress button stays, so the
+ * normal pre-publish flow keeps working.)
+ */
+body.sng-be-replace .editor-post-publish-button,
+body.sng-be-replace .editor-post-publish-button__button {
+	display: none !important;
+}
+
+/* RTL support. */
+.rtl .sng-be-container {
+	margin-left: 0;
+	margin-right: 6px;
+}
+
+.rtl .sng-be-container > .sng-be-main {
+	border-right: 1px solid var(--wp-admin-theme-color, #3858e9);
+	border-left: 0;
+	border-radius: 0 6px 6px 0;
+}
+
+.rtl .sng-be-container > .sng-be-toggle {
+	border-radius: 6px 0 0 6px;
+}
+
+.rtl .sng-be-menu-item {
+	text-align: right;
+}

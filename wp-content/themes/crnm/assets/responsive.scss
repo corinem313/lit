@@ -1,0 +1,595 @@
+/**
+ * Responsive styles
+ *
+ * Source:  assets/responsive.scss
+ * Output:  build/responsive.css
+ *
+ * Keep `npm run watch` running in this theme folder to rebuild on save.
+ */
+
+// Breakpoints — keep in sync with assets/main.scss
+$media-max-width-sm: 599px;
+$media-max-width-md: 781px;
+$media-max-width-lg: 999px;
+
+$media-max-width-1700: 1700px;
+$media-max-width-1470: 1470px;
+$media-max-width-1350: 1350px;
+$media-max-width-1250: 1250px;
+
+$spacing-vertical: var(--wp--preset--spacing--3, 1rem) !default;
+$spacing-horizontal: var(--wp--preset--spacing--4, 1.5rem) !default;
+
+@mixin max($width) {
+	@media (max-width: $width) {
+		@content;
+	}
+}
+
+@mixin min($width) {
+	@media (min-width: $width) {
+		@content;
+	}
+}
+
+/**
+ * Tablet and below
+ */
+@include max($media-max-width-lg) {
+	input[type="text"],
+	input[type="password"],
+	input[type="url"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="number"],
+	input[type="search"] {
+		width: 100%;
+	}
+}
+
+/**
+ * Phone
+ */
+@include max($media-max-width-sm) {
+	header {
+		&.site-header {
+			.wp-block-navigation {
+				.wp-block-navigation__container {
+					width: 100%;
+				}
+
+				.wp-block-search {
+					order: -1;
+				}
+			}
+		}
+	}
+
+	main {
+		[type="submit"],
+		#submit {
+			width: 100%;
+		}
+	}
+
+	footer {
+		&.site-footer {
+			.wp-block-site-title,
+			[class*="has-text-align-"] {
+				text-align: center;
+			}
+
+			.wp-block-site-title,
+			.wp-block-navigation {
+				width: 100%;
+			}
+
+			.wp-block-site-title {
+				margin-bottom: $spacing-vertical;
+			}
+
+			.wp-block-navigation {
+				justify-content: center;
+			}
+		}
+	}
+
+	.wp-block-post-navigation-link {
+		margin: $spacing-vertical 0;
+		padding: 0 $spacing-horizontal;
+		text-align: center;
+
+		&.post-navigation-link-previous {
+			margin-top: calc(#{$spacing-vertical} * 3);
+		}
+	}
+}
+
+/**
+ * Custom responsive overrides
+ * Add site-specific rules below.
+ */
+
+ .main-navigation {
+	@media (max-width: $media-max-width-1470) {
+		gap: 30px !important;
+		
+		&__menu {
+			gap: 30px !important;
+		}
+		
+	}
+ }
+
+.home-hero, .about-hero, .programs-hero {
+	@media (max-width: $media-max-width-1700) {
+		max-width: 1350px !important;
+
+		h1 {
+			font-size: 100px !important;
+		}
+	}
+	@media (max-width: $media-max-width-1350) {
+		max-width: 1200px !important;
+
+		h1 {
+			font-size: 90px !important;
+		}
+	}
+}
+
+.crnm-hero-rectangle {
+	@media (max-width: $media-max-width-1350) {
+		top: calc(50vh - 50px) !important;
+	}
+
+	img {
+		@media (max-width: $media-max-width-1700) {
+			height: 700px !important;
+		}
+
+		@media (max-width: $media-max-width-1350) {
+			height: 600px !important;
+		}
+	}
+}
+
+.home-method {
+	@media (max-width: $media-max-width-1700) {
+		h2 {
+			font-size: 90px !important;
+
+			@media (max-width: $media-max-width-1350) {
+				font-size: 80px !important;
+			}
+		}
+
+		&__p {
+			font-size: 35px !important;
+
+			@media (max-width: $media-max-width-1350) {
+				font-size: 25px !important;
+			}
+		}
+	}
+}
+
+.home-program {
+
+	@media (max-width: 1920px) {
+		&__heading {
+			padding-left: calc(50% - 30px) !important;
+		}
+	}
+
+	@media (max-width: 1550px) {
+		&__heading {
+			padding-left: calc(50% - 55px) !important;
+		}
+	}
+
+	@media (max-width: $media-max-width-1470) {
+		&__heading {
+			padding-left: calc(100% - 730px) !important;
+		}
+	}
+	
+	@media (max-width: $media-max-width-1700) {
+		
+		h2 {
+			font-size: 90px !important;
+
+			@media (max-width: $media-max-width-1350) {
+				font-size: 80px !important;
+			}
+		}
+	}
+}
+
+.crnm-program-right-col {
+	p{
+		margin: 0 !important;
+	}
+	@media (max-width: $media-max-width-1700) {
+		width: 730px;
+
+		&__container {
+			width: 700px !important;
+		}
+	}
+}
+
+.crnm-program-left-col {
+	@media (max-width: $media-max-width-1470) {
+		width: 400px !important;
+	}
+}
+
+.crnm-program-section {
+	.crnm-animated-content {
+		@media (max-width: 1920px) {
+			max-width: 80% !important;
+
+			&:hover {
+				max-width: calc(80% + 60px) !important
+			}
+		}
+
+		@media (max-width: 1550px) {
+			max-width: 85% !important;
+
+			&:hover {
+				max-width: calc(85% + 60px) !important
+			}
+		}
+
+		@media (max-width: $media-max-width-1470) {
+			max-width: 1250px !important;
+
+			&:hover {
+				max-width: 1300px !important;
+
+				.crnm-program-left-col {
+					width: 200px !important;
+				}
+			}
+		}
+
+		@media (max-width: $media-max-width-1350) {
+			max-width: 1150px !important;
+
+			&:hover {
+				max-width: 1200px !important
+			}
+		}
+
+		@media (max-width: $media-max-width-1250) {
+			padding: 40px 30px !important;
+		}
+	}
+
+
+	@media (max-width: $media-max-width-1700) {
+		.crnm-program-left-col p {
+			font-size: 80px !important;
+
+			@media (max-width: $media-max-width-1250) {
+				font-size: 70px !important;
+			}
+		}
+
+		h3 {
+			font-size: 70px !important;
+
+			@media (max-width: $media-max-width-1250) {
+				font-size: 60px !important;
+			}
+		}
+
+		h4 {
+			font-size: 35px !important;
+
+			@media (max-width: $media-max-width-1250) {
+				font-size: 30px !important;
+			}
+		}
+	}
+}
+
+.home-athletes {
+	@media (max-width: $media-max-width-1700) {
+		h2 {
+			font-size: 90px !important;
+
+			@media (max-width: $media-max-width-1350) {
+				font-size: 80px !important;
+			}
+		}
+	}
+}
+.home-grid-athletes {
+	@media (max-width: $media-max-width-1700) {
+		gap: 80px !important;
+
+		&__card {
+			h4 {
+				font-size: 30px !important;
+
+				@media (max-width: $media-max-width-1350) {
+					font-size: 25px !important;
+					margin-top: 10px !important;
+				}
+			}
+		}
+	}
+
+	@media (max-width: $media-max-width-1350) {
+		gap: 40px !important;
+	}
+}
+
+.home-develop__p {
+	@media (max-width: $media-max-width-1700) {
+		font-size: 48px !important;
+
+		@media (max-width: $media-max-width-1350) {
+			font-size: 40px !important;
+		}
+	}
+}
+
+.about-hero {
+	@media (max-width: $media-max-width-1700) {
+		figure {
+			right: -30px !important;
+
+			@media (max-width: $media-max-width-1350) {
+				right: -80px !important;
+			}
+
+			@media (max-width: $media-max-width-1250) {
+				right: -20px !important;
+			}
+
+			img {
+				width: 550px !important;
+
+				@media (max-width: $media-max-width-1350) {
+					width: 450px !important;
+				}
+			}
+		}
+	}
+}
+
+.about-who-we-are, .programs-who-we-are {
+	@media (max-width: $media-max-width-1700) {
+		z-index: 1;
+
+		h2 {
+			font-size: 17px !important;
+		}
+		h3 {
+			font-size: 90px !important;
+
+			@media (max-width: $media-max-width-1350) {
+				font-size: 80px !important;
+			}
+		}
+	}
+}
+
+.about-science-banner, .programs-sience-banner {
+	@media (max-width: $media-max-width-1700) {
+		max-width: 1210px !important;
+
+		@media (max-width: $media-max-width-1470) {
+			max-width: 100% !important;
+			padding-left: 70px !important;
+		}
+		
+	
+		h2 {
+			font-size: 100px !important;
+			bottom: -110px !important;
+
+			@media (max-width: $media-max-width-1350) {
+				font-size: 90px !important;
+			}
+		}
+	}
+}
+
+.about-cards-container {
+	@media (max-width: $media-max-width-1700) {
+		max-width: 1320px !important;
+	}
+
+	@media (max-width: $media-max-width-1470) {
+		max-width: 100% !important;
+	}
+}
+
+.about-grid-cards {
+	@media (max-width: $media-max-width-1700) {
+		gap: 40px !important;
+
+		@media (max-width: $media-max-width-1350) {
+			gap: 100px !important;
+		}
+
+		@media (max-width: $media-max-width-1250) {
+			gap: 40px !important;
+		}
+	}
+}
+
+.bullet-point-card {
+	@media (max-width: $media-max-width-1700) {
+		h4 {
+			font-size: 30px !important;
+			margin-top: -3px !important;
+
+			@media (max-width: $media-max-width-1350) {
+				font-size: 25px !important;
+				line-height: 30px !important;
+			}
+		}
+		p{
+			margin-top: 10px !important;
+		}
+	}
+}
+
+.about-one-method {
+	@media (max-width: $media-max-width-1700) {
+		max-width: 1350px !important;
+
+		@media (max-width: $media-max-width-1470) {
+			max-width: 100% !important;
+		}
+
+		> div.has-global-padding{
+			padding: 0 !important;
+		}
+
+		&__p {
+			max-width: 730px !important;
+
+			@media (max-width: $media-max-width-1250) {
+				max-width: 660px !important;
+			}
+		}
+		
+		h2 {
+			font-size: 90px !important;
+
+			@media (max-width: $media-max-width-1350) {
+				font-size: 80px !important;
+			}
+		}
+
+		figure {
+			right: -45px !important;
+
+			img {
+				width: 550px !important;
+
+				@media (max-width: $media-max-width-1350) {
+					width: 450px !important;
+				}
+			}
+		}
+	}
+}
+
+.about-coaches {
+	@media (max-width: $media-max-width-1700) {
+		max-width: 1350px !important;
+
+		@media (max-width: $media-max-width-1470) {
+			max-width: 100% !important;
+		}
+
+		> div.has-global-padding{
+			padding: 0 !important;
+		}
+
+		h2 {
+			font-size: 90px !important;
+
+			@media (max-width: $media-max-width-1350) {
+				font-size: 80px !important;
+			}
+		}
+
+		&__gallery {
+			z-index: 1 !important;
+			position: relative !important;
+
+			h4 {
+				font-size: 30px !important;
+
+				@media (max-width: $media-max-width-1350) {
+					font-size: 25px !important;
+					margin-top: 10px !important;
+				}
+			}
+
+			p {
+				@media (max-width: $media-max-width-1350) {
+					font-size: 14px !important;
+				}
+			}
+		}
+
+		&__square_img  {
+			right: -40% !important;
+
+			img {
+				width: 700px !important;
+			}
+		}
+	}
+}
+
+.crnm-ready {
+	@media (max-width: $media-max-width-1700) {
+		&__contained {
+			max-width: 660px !important;
+		}
+
+		h2 {
+			font-size: 58px !important;
+
+			@media (max-width: $media-max-width-1350) {
+				font-size: 50px !important;
+			}
+		}
+	}
+}
+
+.about-values {
+	@media (max-width: $media-max-width-1700) {
+
+		&__heading {
+			max-width: 1210px !important;
+
+			@media (max-width: $media-max-width-1470) {
+				max-width: 100% !important;
+				padding-left: 60px !important;
+			}
+
+			h2 {
+				font-size: 17px !important;
+			}
+
+			h3 {
+				font-size: 90px !important;
+
+				@media (max-width: $media-max-width-1350) {
+					font-size: 80px !important;
+				}
+			}
+		}
+
+		&__cards {
+			@media (max-width: $media-max-width-1700) {
+				max-width: 1320px !important;
+			}
+
+			@media (max-width: $media-max-width-1470) {
+				max-width: 100% !important;
+			}
+
+			&__grid {
+				gap: 40px !important;
+
+				@media (max-width: $media-max-width-1250) {
+					gap: 90px !important;
+					grid-template-columns: repeat(2, 1fr) !important;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"name": "4wp-dev/4wp-smart-link",
+	"description": "4WP Smart Link — WordPress plugin",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"php": ">=7.4"
+	},
+	"config": {
+		"sort-packages": true
+	}
+}

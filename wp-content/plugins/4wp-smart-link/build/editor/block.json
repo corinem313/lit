@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "forwp/smart-link",
+	"version": "1.4.0",
+	"title": "4WP Smart Link",
+	"category": "widgets",
+	"icon": "admin-links",
+	"description": "Editor extensions for 4WP Smart Link on supported core blocks.",
+	"supports": {
+		"html": false,
+		"inserter": false
+	},
+	"textdomain": "4wp-smart-link",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
+}

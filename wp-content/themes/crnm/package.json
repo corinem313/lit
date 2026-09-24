@@ -1,0 +1,23 @@
+{
+	"name": "themes-starter-fse",
+	"version": "1.0.0",
+	"license": "GPL-2.0",
+	"description": "A WordPress Starter Theme built for Full Site Editing.",
+	"homepage": "https://them.es",
+	"author": "them.es",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/them-es/themes-starter-fse.git"
+	},
+	"scripts": {
+		"watch": "webpack --watch",
+		"start": "wp-scripts start",
+		"build": "wp-scripts build"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@wordpress/scripts": "^27.7.0",
+		"path": "^0.12.7",
+		"webpack-remove-empty-scripts": "^1.0.4"
+	}
+}

@@ -1,0 +1,14 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sngGrad" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4F6DF5"/>
+      <stop offset="0.55" stop-color="#3858E9"/>
+      <stop offset="1" stop-color="#1D35B4"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#sngGrad)"/>
+  <path d="M62 54h108l32 32v116a10 10 0 0 1-10 10H62a10 10 0 0 1-10-10V64a10 10 0 0 1 10-10Z" stroke="#FFFFFF" stroke-width="12" stroke-linejoin="round" fill="none"/>
+  <path d="M84 54v40h72V54" stroke="#FFFFFF" stroke-width="12" stroke-linejoin="round" fill="none"/>
+  <rect x="78" y="128" width="100" height="84" rx="8" stroke="#FFFFFF" stroke-width="12" stroke-linejoin="round" fill="none"/>
+  <path d="M104 170h36m0 0-14-14m14 14-14 14" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

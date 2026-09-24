@@ -1,0 +1,11 @@
+.crnm-nbp-sidebar {
+	padding: 16px;
+}
+
+.crnm-nbp-sidebar .components-button.is-primary {
+	margin-top: 12px;
+}
+
+.crnm-nbp-sidebar__status {
+	margin-top: 12px;
+}

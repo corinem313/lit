@@ -1,0 +1,22 @@
+.crnm-wpec-wrap {
+	max-width: 960px;
+}
+
+.crnm-wpec-intro {
+	max-width: 52rem;
+}
+
+.crnm-wpec-table {
+	margin-top: 1rem;
+}
+
+.crnm-wpec-table .check-column {
+	width: 2.5em;
+	padding: 8px 0 8px 8px;
+	vertical-align: middle;
+}
+
+.crnm-wpec-table td,
+.crnm-wpec-table th {
+	vertical-align: middle;
+}

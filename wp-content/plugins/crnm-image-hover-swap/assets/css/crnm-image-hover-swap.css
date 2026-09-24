@@ -1,0 +1,71 @@
+/**
+ * CRNM Image Hover Swap — Front-end Styles
+ *
+ * Hover and .is-hovered both trigger the swap so the effect still runs
+ * if a parent layout intercepts CSS :hover. Settings (duration, effect)
+ * are applied via CSS custom properties on the container.
+ */
+
+.crnm-image-hover-swap {
+	--crnm-ihs-duration: 700ms;
+	--crnm-ihs-zoom-duration: 840ms;
+	position: relative;
+	overflow: hidden;
+	display: block;
+	align-self: start;
+	justify-self: start;
+	box-sizing: border-box;
+	max-width: 100%;
+	isolation: isolate;
+	cursor: pointer;
+}
+
+.crnm-image-hover-swap .crnm-ihs__img {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	max-width: none;
+	pointer-events: none;
+	transform: scale(1);
+	transform-origin: center center;
+	backface-visibility: hidden;
+	will-change: opacity, transform;
+	transition:
+		opacity var(--crnm-ihs-duration) cubic-bezier(0.22, 1, 0.36, 1),
+		transform var(--crnm-ihs-zoom-duration) cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.crnm-image-hover-swap .crnm-ihs__img--default {
+	opacity: 1;
+	z-index: 1;
+}
+
+.crnm-image-hover-swap .crnm-ihs__img--hover {
+	opacity: 0;
+	z-index: 2;
+}
+
+.crnm-image-hover-swap:hover .crnm-ihs__img--default,
+.crnm-image-hover-swap.is-hovered .crnm-ihs__img--default,
+.crnm-image-hover-swap:focus-within .crnm-ihs__img--default {
+	opacity: 0;
+}
+
+.crnm-image-hover-swap:hover .crnm-ihs__img--hover,
+.crnm-image-hover-swap.is-hovered .crnm-ihs__img--hover,
+.crnm-image-hover-swap:focus-within .crnm-ihs__img--hover {
+	opacity: 1;
+}
+
+.crnm-image-hover-swap--fade-zoom:hover .crnm-ihs__img,
+.crnm-image-hover-swap--fade-zoom.is-hovered .crnm-ihs__img,
+.crnm-image-hover-swap--fade-zoom:focus-within .crnm-ihs__img {
+	transform: scale(1.08);
+}
