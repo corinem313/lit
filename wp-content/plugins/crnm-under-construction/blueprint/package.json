@@ -1,0 +1,11 @@
+{
+	"name": "crnm-under-construction-page",
+	"private": true,
+	"scripts": {
+		"build": "sass style.scss style.css --style=expanded --no-source-map",
+		"watch": "sass --watch style.scss:style.css --style=expanded --no-source-map"
+	},
+	"devDependencies": {
+		"sass": "^1.77.0"
+	}
+}
