@@ -34,6 +34,8 @@ if ( function_exists( 'wp_unschedule_hook' ) ) {
 }
 
 delete_option( 'wpcode_send_usage_last_run' );
+delete_option( 'wpcode_revisions_cleanup' );
+delete_option( 'wpcode_revisions_cache_salt' );
 delete_option( 'wpcode_usage_tracking_config' );
 
 // Let's see if the uninstall_data option is set.

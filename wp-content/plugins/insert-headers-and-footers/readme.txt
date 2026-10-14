@@ -4,7 +4,7 @@ Tags: code, css, php, header, code snippets
 Requires at least: 5.0
 Tested up to: 7.1
 Requires PHP: 7.0
-Stable tag: 2.3.9
+Stable tag: 2.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -231,6 +231,9 @@ WPCode comes with a ready-made code snippets library that allows you to replace 
 ... and basically any plugin that adds a functionality which can be added via custom code snippets.
 
 == Changelog ==
+
+= 2.4.0 =
+* Fix: Improved safe mode security so only users who can manage snippets can load the site with snippets disabled.
 
 = 2.3.9 =
 * Fix: PHP fatal error when a snippet error was logged on a frontend or REST request while the logs folder was missing.

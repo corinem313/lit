@@ -951,6 +951,10 @@ class WPCode_Admin_Page_Snippet_Manager extends WPCode_Admin_Page {
 		// Show a faux select box with the current location.
 		$location_label = wpcode()->auto_insert->get_location_label( $current_location );
 
+		if ( '' === $location_label ) {
+			$location_label = __( 'None', 'insert-headers-and-footers' );
+		}
+
 		$markup = '<input type="hidden" name="wpcode_auto_insert_location_extra" id="wpcode_auto_insert_location_extra" value="' . esc_attr( $location_extra ) . '" />';
 
 		$markup .= '<div class="wpcode-faux-select" id="wpcode-selected-location-display" tabindex="0"><span>' . esc_html( $location_label ) . '</span></div>';

@@ -22,12 +22,11 @@ function wpcode_maybe_enable_safe_mode() {
 		return;
 	}
 
-	// Only modify URLs if the user is on the login page or has the capability to manage snippets.
-	if ( wpcode_is_wplogin() || current_user_can( 'wpcode_activate_snippets' ) ) {
+	// Only modify URLs if the user has the capability to manage snippets.
+	if ( current_user_can( 'wpcode_activate_snippets' ) ) {
 		// If we're in safe mode, let's make sure all URLs keep the param until we are safe to get out.
 		add_filter( 'home_url', 'wpcode_keep_safe_mode' );
 		add_filter( 'admin_url', 'wpcode_keep_safe_mode' );
-		add_filter( 'site_url', 'wpcode_keep_safe_mode_login', 10, 3 );
 		// The admin menu doesn't offer a hook to change all the menu links so we do it with JS.
 		add_action( 'admin_footer', 'wpcode_keep_safe_mode_admin_menu' );
 		// Show a notice informing the user we're in safe mode and offer a way to get out.
@@ -85,8 +84,8 @@ function wpcode_safe_mode_notice() {
 }
 
 /**
- * Let's check if we're in the admin or if the current user can manage
- * snippets before allowing them to see the site with snippets disabled.
+ * Let's check if the current user can manage snippets before
+ * allowing them to see the site with snippets disabled.
  *
  * @param bool $execute Execute snippets or not.
  *
@@ -97,42 +96,9 @@ function wpcode_maybe_prevent_execution( $execute ) {
 		return $execute;
 	}
 
-	if ( wpcode_is_wplogin() || current_user_can( 'wpcode_activate_snippets' ) ) {
+	if ( current_user_can( 'wpcode_activate_snippets' ) ) {
 		return false;
 	}
 
 	return $execute;
-}
-
-/**
- * Checks schema passed to site_url and adds the safe mode query param
- * so we can login using safe mode.
- *
- * @param string $url The site_url already processed.
- * @param string $path The path that was added to the URL.
- * @param string $scheme The scheme that was requested.
- *
- * @return string
- */
-function wpcode_keep_safe_mode_login( $url, $path, $scheme ) {
-	if ( 'login_post' !== $scheme ) {
-		return $url;
-	}
-
-	return add_query_arg( 'wpcode-safe-mode', 1, $url );
-}
-
-/**
- * Helper function that checks if we are on the login screen
- * to allow admins to attempt to log in and disable snippets
- * without having to edit code.
- *
- * @return bool
- */
-function wpcode_is_wplogin() {
-	if ( empty( $_SERVER['REQUEST_URI'] ) ) {
-		return false;
-	}
-
-	return false !== stripos( esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ), strrchr( wp_login_url(), '/' ) );
 }
