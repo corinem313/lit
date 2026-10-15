@@ -1,0 +1,33 @@
+/* Hide 4WP Smart Link's URL box. The replacement is portaled in as the first child. */
+.forwp-smart-link-panel__custom > .block-editor-url-input {
+	display: none;
+}
+
+.crnm-smart-link-url .block-editor-link-control {
+	min-width: 0;
+	width: 100%;
+}
+
+.crnm-smart-link-url .block-editor-link-control__field,
+.crnm-smart-link-url .block-editor-link-control__search-input-wrapper {
+	margin: 0 0 8px;
+}
+
+.crnm-smart-link-url .block-editor-link-control__search-actions {
+	padding: 0 0 8px;
+}
+
+.crnm-smart-link-url .block-editor-link-control__search-results {
+	margin-top: 0;
+	max-height: 11rem;
+	padding: 4px 0 8px;
+}
+
+.crnm-smart-link-url .block-editor-link-control__search-results-wrapper::before,
+.crnm-smart-link-url .block-editor-link-control__search-results-wrapper::after {
+	right: 0;
+}
+
+.crnm-smart-link-url .block-editor-link-control__preview {
+	padding: 0 0 8px;
+}
