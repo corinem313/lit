@@ -60,6 +60,7 @@ wp-config.php
 /wp-content/fonts/
 /wp-content/advanced-cache.php
 /wp-content/wp-cache-config.php
+wp-content/plugins/wordpress-importer/
 
 # OS and tooling
 .DS_Store
