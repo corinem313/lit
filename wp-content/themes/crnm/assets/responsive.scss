@@ -288,11 +288,28 @@ div.back-top {
 		}
 	}
 	@media (max-width: $media-max-width-1000) {
-		padding: 0 !important;
+		padding: 70px 0 0 !important;
 
 		h2 {
 			font-size: 3.5em !important;
 		}
+	}
+}
+
+.logos-wrapper {
+	@media (max-width: $media-max-width-1000) {
+		display: grid !important;
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		gap: 50px !important;
+
+		img {
+			display: block !important;
+			margin: 0 auto !important;
+			width: 150px !important;
+		}
+	}
+	@media (max-width: $media-max-width-600) {
+		grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
 	}
 }
 
