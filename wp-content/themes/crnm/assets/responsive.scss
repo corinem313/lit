@@ -112,6 +112,12 @@ $spacing-horizontal: var(--wp--preset--spacing--4, 1.5rem) !default;
  * Add site-specific rules below.
  */
 
+ .service-item-title {
+	mark {
+		margin-right: 40px;
+	}
+ }
+
  .wp-block-site-logo img {
 	@media (max-width: $media-max-width-600) {
 		width: 50px !important;
@@ -513,6 +519,18 @@ div.back-top {
 		}
 	}
 }
+
+.crnm-image-hover-swap {
+	width: 100% !important;
+}
+
+.gallery-page-wrapper, .gallery-arrow {
+	@media (max-width: $media-max-width-600) {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+}
+
 .home-grid-athletes {
 	@media (max-width: $media-max-width-1700) {
 		gap: 80px !important;
@@ -535,10 +553,6 @@ div.back-top {
 
 	@media (max-width: $media-max-width-1000) {
 		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-
-		.crnm-image-hover-swap {
-			width: 100% !important;
-		}
 	}
 
 	@media (max-width: $media-max-width-600) {
